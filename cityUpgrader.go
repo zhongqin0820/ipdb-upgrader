@@ -16,9 +16,10 @@ const (
 	STRING_CHINA    = "中国"
 	STRING_CHINA_DC = "香港/澳门/台湾"
 
-	FILENAME_COUNTRY = "utils/codeCountry.json"
-	FILENAME_REGION  = "utils/codeRegion.json"
-	FILENAME_CITY    = "utils/codeCity.json"
+	FILENAME_COUNTRY  = "utils/codeCountry.json"
+	FILENAME_REGION   = "utils/codeRegion.json"
+	FILENAME_CITY     = "utils/codeCity.json"
+	FILENAME_DATABASE = "utils/ipipfree.ipdb"
 )
 
 var (
@@ -27,6 +28,12 @@ var (
 	ERR_NOT_FOUND_MAINLAND_REGION = errors.New("not found ChinaAdminCode")
 	ERR_NOT_FOUND_MAINLAND_CITY   = errors.New("not found ChinaCityCode")
 )
+
+var IPupgrader *Upgrader
+
+func init() {
+	IPupgrader, _ = NewUpgrader(FILENAME_DATABASE)
+}
 
 // Upgrader upgrades the free version ipdb CityInfo to custom UpgradeCityInfo
 type Upgrader struct {

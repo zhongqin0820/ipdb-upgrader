@@ -10,7 +10,7 @@ var db *City
 var errDB = errors.New("NIL DB")
 
 func init() {
-	db, _ = NewCity(STRING_DBNAME)
+	db, _ = NewCity(FILENAME_DATABASE)
 }
 
 func TestNewCity(t *testing.T) {

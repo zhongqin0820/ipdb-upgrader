@@ -6,15 +6,9 @@ import (
 	"testing"
 )
 
-const STRING_DBNAME = "utils/ipipfree.ipdb"
 const STRING_BENCH_IP = "118.28.1.1"
 
-var upgrader *Upgrader
 var errUpgrader = errors.New("NIL Upgrader!")
-
-func init() {
-	upgrader, _ = NewUpgrader(STRING_DBNAME)
-}
 
 // tests driven table
 var tests = []struct {
@@ -51,13 +45,13 @@ var tests = []struct {
 }
 
 func TestUpgrader(t *testing.T) {
-	if upgrader == nil {
+	if IPupgrader == nil {
 		t.Fatal(errUpgrader)
 	}
 	// testing
 	for i, ts := range tests {
 		t.Run(fmt.Sprintf("Example %d", i+1), func(t *testing.T) {
-			res, errRes := upgrader.FindCityInfo(ts.ip)
+			res, errRes := IPupgrader.FindCityInfo(ts.ip)
 			if errRes != ts.output {
 				t.Log(errRes)
 				t.Fatal(res)
@@ -67,11 +61,11 @@ func TestUpgrader(t *testing.T) {
 }
 
 func BenchmarkFindInfo(b *testing.B) {
-	if upgrader == nil {
+	if IPupgrader == nil {
 		b.Fatal(errUpgrader)
 	}
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		upgrader.FindCityInfo(STRING_BENCH_IP)
+		IPupgrader.FindCityInfo(STRING_BENCH_IP)
 	}
 }

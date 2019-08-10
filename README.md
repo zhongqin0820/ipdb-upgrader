@@ -1,4 +1,7 @@
 # ipdb-upgrader
+[![Build Status](https://travis-ci.org/zhongqin0820/ipdb-upgrader.svg?branch=master)](https://travis-ci.org/zhongqin0820/ipdb-upgrader)
+[![Coverage Status](https://coveralls.io/repos/github/zhongqin0820/ipdb-upgrader/badge.svg?branch=master)](https://coveralls.io/github/zhongqin0820/ipdb-upgrader?branch=master)
+
 定制化提升免费版<https://ipip.net>的IPDB格式地级市精度IP离线库展示的内容。
 
 # 目录结构
